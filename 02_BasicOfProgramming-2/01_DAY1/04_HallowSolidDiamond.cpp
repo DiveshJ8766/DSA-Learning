@@ -14,15 +14,15 @@ void printHallowSolidDiamond(int totalRows)
         }
 
         //* For Stars
-        for (int starCount = 0; starCount < currentRow + 1; starCount++)
+        for (int starCount = 0; starCount < (2 * currentRow + 1); starCount++)
         {
-            if (starCount == 0 || starCount == currentRow)
+            if (starCount == 0 || starCount == (2 * currentRow))
             {
-                cout << "* ";
+                cout << "*";
             }
             else
             {
-                cout << "  ";
+                cout << " ";
             }
         }
 
@@ -39,15 +39,15 @@ void printHallowSolidDiamond(int totalRows)
         }
 
         //* For Stars
-        for (int starCount = 0; starCount < (totalRows - currentRow); starCount++)
+        for (int starCount = 0; starCount < (2*totalRows - (2*currentRow+1)); starCount++)
         {
-            if (starCount == 0 || starCount == ((totalRows - currentRow) -1))
+            if (starCount == 0 || starCount == (2*totalRows - (2*currentRow+1))-1)
             {
-                cout<<"* ";
+                cout << "*";
             }
             else
             {
-                cout<<"  ";
+                cout << " ";
             }
         }
 
