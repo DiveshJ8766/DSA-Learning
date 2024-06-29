@@ -1,28 +1,33 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-void printFullPyramid(int n){
+void printFullPyramid(int totalRows)
+{
     //* For Number of Rows
-    for(int i = 0;i < n; i++){
+    for (int currentRow = 0; currentRow < totalRows; currentRow++)
+    {
         //* For Spaces
-        for(int j = 0;j <(n-i-1) ;j++){
-            cout<<" ";
+        for (int spaceCount = 0; spaceCount < (totalRows - (currentRow + 1)); spaceCount++)
+        {
+            cout << " ";
         }
 
         //* For Stars
-        for(int k = 0; k <= i;k++){
-            cout<<"* ";
+        for (int starCount = 0; starCount < (currentRow + 1); starCount++)
+        {
+            cout << "* ";
         }
 
-        cout<<endl;
+        cout << endl;
     }
 }
 
-int main() {
-    int n ;
-    cout<<"Enter Number : ";
-    cin>>n;
+int main()
+{
+    int numberOfRows;
+    cout << "Enter Number of Rows: ";
+    cin >> numberOfRows;
 
-    printFullPyramid(n);
+    printFullPyramid(numberOfRows);
     return 0;
 }
