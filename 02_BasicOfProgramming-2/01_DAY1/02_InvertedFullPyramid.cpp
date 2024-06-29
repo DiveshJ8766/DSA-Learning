@@ -1,19 +1,20 @@
 #include <iostream>
 using namespace std;
 
-void printFullPyramid(int totalRows)
+void printInvertedFullPyramid(int totalRows)
 {
-    //* For Number of Rows
+
+    //* For Rows
     for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
-        //* For Spaces
-        for (int spaceCount = 0; spaceCount < (totalRows - (currentRow + 1)); spaceCount++)
+        //* for spaces
+        for (int spaceCount = 0; spaceCount < currentRow; spaceCount++)
         {
             cout << " ";
         }
 
-        //* For Stars
-        for (int starCount = 0; starCount < (currentRow + 1); starCount++)
+        //* for stars
+        for (int starCount = 0; starCount < (totalRows - currentRow); starCount++)
         {
             cout << "* ";
         }
@@ -28,6 +29,7 @@ int main()
     cout << "Enter Number of Rows: ";
     cin >> numberOfRows;
 
-    printFullPyramid(numberOfRows);
+    printInvertedFullPyramid(numberOfRows);
+
     return 0;
 }
