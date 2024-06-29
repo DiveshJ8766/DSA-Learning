@@ -24,11 +24,11 @@ void printFancyPattern(int totalRows)
     //* Lower Part
     for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
-        for (int currentCol = 0; currentCol < (2*totalRows - (2*currentRow+1)); currentCol++)
+        for (int currentCol = 0; currentCol < (2 * totalRows - (2 * currentRow + 1)); currentCol++)
         {
             if (currentCol % 2 == 0)
             {
-                cout << totalRows-currentRow << " ";
+                cout << totalRows - currentRow << " ";
             }
             else
             {
@@ -40,13 +40,43 @@ void printFancyPattern(int totalRows)
     }
 }
 
+void printFancyPattern1(int totalRows)
+{
+    for (int currentRow = 0; currentRow < totalRows; currentRow++)
+    {
+        for (int currentCol = 0; currentCol < currentRow + 1; currentCol++)
+        {
+            cout << currentRow + 1 << " ";
+            if (currentCol != currentRow)
+            {
+                cout << "* ";
+            }
+        }
+        cout << endl;
+    }
+
+    for (int currentRow = 0; currentRow < totalRows; currentRow++)
+    {
+        for (int currentCol = 0; currentCol < (totalRows - currentRow); currentCol++)
+        {
+            cout << totalRows - currentRow << " ";
+            if (currentCol != (totalRows - currentRow - 1))
+            {
+                cout << "* ";
+            }
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
     int numberOfRows;
     cout << "Enter Number Of Rows : ";
     cin >> numberOfRows;
 
-    printFancyPattern(numberOfRows);
+    // printFancyPattern(numberOfRows);
+    printFancyPattern1(numberOfRows);
 
     return 0;
 }
