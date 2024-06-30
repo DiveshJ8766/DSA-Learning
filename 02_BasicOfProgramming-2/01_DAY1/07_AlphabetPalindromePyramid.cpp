@@ -23,6 +23,7 @@ void printAlphabetPalindromePyramid(int totalRows){
     }
 }
 
+//* column Based Logic 
 void printAlphabetPalindromePyramid1(int totalRows){
  //* for Rows
     for(int currentRow = 0;currentRow < totalRows;currentRow++){
