@@ -61,22 +61,25 @@ void printFancyPattern1(int totalRows)
 
 void printSolidHalfDiamond(int totalRows)
 {
-    //* for Rows
+    //* for first pattern
     for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
-        //* for columns
-        for (int currentCol = 0; currentCol < totalRows - currentRow; currentCol++)
+        //* for 
+        for (int currentCol = 0; currentCol < currentRow+1; currentCol++)
         {
-            if (currentCol == 0 || currentCol == (totalRows - currentRow) - 1 || currentRow == 0)
-            {
-                cout << "* ";
-            }
-            else
-            {
-                cout << "  ";
-            }
+            cout<<"* ";
         }
+        cout << endl;
+    }
 
+    //* for second pattern
+    for (int currentRow = 0; currentRow < totalRows; currentRow++)
+    {
+        //* for 
+        for (int currentCol = (totalRows-currentRow-1); currentCol > 0; currentCol--)
+        {
+            cout<<"* ";
+        }
         cout << endl;
     }
 }
@@ -205,11 +208,11 @@ int main()
     cout << endl
          << endl;
 
-    // cout << "Inverted Half Pyramid Pattern : " << endl;
+    cout << "Solid Half Diamond : " << endl;
 
-    // printInvertedHalfPyramid(numberOfRows);
-    // cout << endl
-    //      << endl;
+    printSolidHalfDiamond(numberOfRows);
+    cout << endl
+         << endl;
 
     // cout << "Hallow Full Pyramid Pattern : " << endl;
 
