@@ -7,22 +7,24 @@ void printNumericPalindromeEquilateralPyramid(int totalRows)
     for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
         //* for space
-        for (int currentCol = 0; currentCol < (totalRows-currentRow -1); currentCol++)
+        for (int currentCol = 0; currentCol < (totalRows - currentRow - 1); currentCol++)
         {
             cout << "  ";
         }
 
         //* for increment columns
-        for(int currentCol =0 ; currentCol < currentRow+1;currentCol++ ){
-            cout<<currentCol+1<<" ";
+        for (int currentCol = 0; currentCol < currentRow + 1; currentCol++)
+        {
+            cout << currentCol + 1 << " ";
         }
 
         //* for decreasing columns
-        for(int currentCol = currentRow; currentCol >= 1;currentCol--){
-            cout<<currentCol<<" ";
+        for (int currentCol = currentRow; currentCol >= 1; currentCol--)
+        {
+            cout << currentCol << " ";
         }
 
-        cout<<endl;
+        cout << endl;
 
         cout << endl;
     }
@@ -33,19 +35,26 @@ void printFancyPattern1(int totalRows)
     //* for Rows
     for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
-        //* for columns
-        for (int currentCol = 0; currentCol < totalRows; currentCol++)
+        //* for left star
+        for (int currentCol = 0; currentCol < (totalRows + 3 - currentRow); currentCol++)
         {
-            if (currentCol == 0 || currentCol == totalRows - 1 || currentRow == 0 || currentRow == totalRows - 1)
-            {
-                cout << "* ";
-            }
-            else
-            {
-                cout << "  ";
+            cout << "*";
+        }
+
+        //* for numeric pattern
+        for(int currentCol= 0; currentCol < (2*currentRow+1);currentCol++){
+            if(currentCol%2==0){
+                cout<<currentRow+1;
+            }else{
+                cout<<"*";
             }
         }
 
+        //* for right star
+        for (int currentCol = 0; currentCol < (totalRows + 3 - currentRow); currentCol++)
+        {
+            cout << "*";
+        }
         cout << endl;
     }
 }
@@ -131,48 +140,53 @@ void printFancyPattern3(int totalRows)
 void printFloydsTrianglePattern(int totalRows)
 {
     //* for Rows
-    for(int currentRow = 0;currentRow < totalRows;currentRow++){
+    for (int currentRow = 0; currentRow < totalRows; currentRow++)
+    {
         //* for columns
-        for(int currentCol=0;currentCol < currentRow+1;currentCol++){
-            if(currentCol==0 || currentCol == currentRow || currentRow == totalRows-1)
-                cout<<currentCol+1<<" ";
+        for (int currentCol = 0; currentCol < currentRow + 1; currentCol++)
+        {
+            if (currentCol == 0 || currentCol == currentRow || currentRow == totalRows - 1)
+                cout << currentCol + 1 << " ";
             else
-                cout<<"  ";
+                cout << "  ";
         }
-        cout<<endl;
+        cout << endl;
     }
 }
 
 void printPascalsTrianglePattern(int totalRows)
 {
     //* for Rows
-    for(int currentRow = 0;currentRow < totalRows;currentRow++){
+    for (int currentRow = 0; currentRow < totalRows; currentRow++)
+    {
         //* for columns
-        for(int currentCol=0;currentCol < (totalRows-currentRow);currentCol++){
-            if(currentCol==0 || currentCol == ((totalRows-currentRow) -1) || currentRow == 0)
-                cout<<currentCol+1<<" ";
+        for (int currentCol = 0; currentCol < (totalRows - currentRow); currentCol++)
+        {
+            if (currentCol == 0 || currentCol == ((totalRows - currentRow) - 1) || currentRow == 0)
+                cout << currentCol + 1 << " ";
             else
-                cout<<"  ";
+                cout << "  ";
         }
-        cout<<endl;
+        cout << endl;
     }
 }
 
 void printButterflyPattern(int totalRows)
 {
     //* for Rows
-    for(int currentRow = 0;currentRow < totalRows;currentRow++){
+    for (int currentRow = 0; currentRow < totalRows; currentRow++)
+    {
         //* for columns
-        for(int currentCol=0;currentCol < (totalRows-currentRow);currentCol++){
-            if(currentCol==0 || currentCol == ((totalRows-currentRow) -1) || currentRow == 0)
-                cout<<currentCol+1<<" ";
+        for (int currentCol = 0; currentCol < (totalRows - currentRow); currentCol++)
+        {
+            if (currentCol == 0 || currentCol == ((totalRows - currentRow) - 1) || currentRow == 0)
+                cout << currentCol + 1 << " ";
             else
-                cout<<"  ";
+                cout << "  ";
         }
-        cout<<endl;
+        cout << endl;
     }
 }
-
 
 int main()
 {
@@ -185,11 +199,11 @@ int main()
     cout << endl
          << endl;
 
-    // cout << "Solid Hallow Square Pattern : " << endl;
+    cout << "Fancy Pattern 1 : " << endl;
 
-    // printSolidHallowSquarePattern(numberOfRows);
-    // cout << endl
-    //      << endl;
+    printFancyPattern1(numberOfRows);
+    cout << endl
+         << endl;
 
     // cout << "Inverted Half Pyramid Pattern : " << endl;
 
