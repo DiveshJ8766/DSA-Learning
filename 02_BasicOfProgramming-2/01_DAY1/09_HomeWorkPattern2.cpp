@@ -42,11 +42,15 @@ void printFancyPattern1(int totalRows)
         }
 
         //* for numeric pattern
-        for(int currentCol= 0; currentCol < (2*currentRow+1);currentCol++){
-            if(currentCol%2==0){
-                cout<<currentRow+1;
-            }else{
-                cout<<"*";
+        for (int currentCol = 0; currentCol < (2 * currentRow + 1); currentCol++)
+        {
+            if (currentCol % 2 == 0)
+            {
+                cout << currentRow + 1;
+            }
+            else
+            {
+                cout << "*";
             }
         }
 
@@ -64,10 +68,10 @@ void printSolidHalfDiamond(int totalRows)
     //* for first pattern
     for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
-        //* for 
-        for (int currentCol = 0; currentCol < currentRow+1; currentCol++)
+        //* for
+        for (int currentCol = 0; currentCol < currentRow + 1; currentCol++)
         {
-            cout<<"* ";
+            cout << "* ";
         }
         cout << endl;
     }
@@ -75,10 +79,10 @@ void printSolidHalfDiamond(int totalRows)
     //* for second pattern
     for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
-        //* for 
-        for (int currentCol = (totalRows-currentRow-1); currentCol > 0; currentCol--)
+        //* for
+        for (int currentCol = (totalRows - currentRow - 1); currentCol > 0; currentCol--)
         {
-            cout<<"* ";
+            cout << "* ";
         }
         cout << endl;
     }
@@ -142,16 +146,14 @@ void printFancyPattern3(int totalRows)
 
 void printFloydsTrianglePattern(int totalRows)
 {
+    int count = 1;
     //* for Rows
     for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
         //* for columns
         for (int currentCol = 0; currentCol < currentRow + 1; currentCol++)
         {
-            if (currentCol == 0 || currentCol == currentRow || currentRow == totalRows - 1)
-                cout << currentCol + 1 << " ";
-            else
-                cout << "  ";
+            cout << count++ << " ";
         }
         cout << endl;
     }
@@ -228,12 +230,12 @@ int main()
     // cout << endl
     //      << endl;
 
-    //       cout << "Numeric Hallow Inverted Half Pyramid Pattern : " << endl;
+    cout << "Floyds Triangle Pattern : " << endl;
 
-    // printNumericHallowInvertedHalfPyramid(numberOfRows);
+    printFloydsTrianglePattern(numberOfRows);
 
-    // cout << endl
-    //      << endl;
+    cout << endl
+         << endl;
 
     return 0;
 }
