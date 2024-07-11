@@ -178,19 +178,52 @@ void printPascalsTrianglePattern(int totalRows)
 
 void printButterflyPattern(int totalRows)
 {
-    //* for Rows
+    //* for First pattern
     for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
-        //* for columns
-        for (int currentCol = 0; currentCol < (totalRows - currentRow); currentCol++)
+        //* for left star
+        for (int currentCol = 0; currentCol < currentRow + 1; currentCol++)
         {
-            if (currentCol == 0 || currentCol == ((totalRows - currentRow) - 1) || currentRow == 0)
-                cout << currentCol + 1 << " ";
-            else
-                cout << "  ";
+            cout << "*";
+        }
+
+        //* for spaces
+        for (int currentCol = 0; currentCol < ((2 * (totalRows - currentRow - 1)) + 1); currentCol++)
+        {
+            cout << " ";
+        }
+
+        //* for right star
+        for (int currentCol = 0; currentCol < currentRow + 1; currentCol++)
+        { 
+            cout << "*";
         }
         cout << endl;
     }
+
+//* for Second pattern
+   for (int currentRow = 0; currentRow < totalRows; currentRow++)
+    {
+        //* for left star
+        for (int currentCol = (totalRows-currentRow); currentCol > 0; currentCol--)
+        {
+            cout << "*";
+        }
+
+        //* for spaces
+        for (int currentCol = 0; currentCol < 2*currentRow+1; currentCol++)
+        {
+            cout << " ";
+        }
+
+        //* for right star
+        for (int currentCol = (totalRows-currentRow); currentCol > 0; currentCol--)
+        { 
+            cout << "*";
+        }
+        cout << endl;
+    }
+
 }
 
 int main()
@@ -233,6 +266,13 @@ int main()
     cout << "Floyds Triangle Pattern : " << endl;
 
     printFloydsTrianglePattern(numberOfRows);
+
+    cout << endl
+         << endl;
+
+    cout << "ButterFly Pattern : " << endl;
+
+    printButterflyPattern(numberOfRows);
 
     cout << endl
          << endl;
