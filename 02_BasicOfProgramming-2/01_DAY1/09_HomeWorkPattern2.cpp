@@ -90,26 +90,50 @@ void printSolidHalfDiamond(int totalRows)
 
 void printFancyPattern2(int totalRows)
 {
-    //* for Rows
+    //* for first pattern
     for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
-        //* for space
-        for (int spaceCount = 0; spaceCount < (totalRows - currentRow - 1); spaceCount++)
+        cout << "*";
+
+        //* for increasing part
+        for (int currentCol = 0; currentCol < currentRow; currentCol++)
         {
-            cout << " ";
+            cout << currentCol + 1;
         }
 
-        //* for Star
-        for (int starCount = 0; starCount < currentRow + 1; starCount++)
+        //* for decreasing part
+        for (int currentCol = currentRow - 1; currentCol >= 1; currentCol--)
         {
-            if (starCount == 0 || starCount == currentRow || currentRow == totalRows - 1)
-            {
-                cout << "* ";
-            }
-            else
-            {
-                cout << "  ";
-            }
+            cout << currentCol;
+        }
+
+        if (currentRow > 0)
+        {
+            cout << "*";
+        }
+
+        cout << endl;
+    }
+     //* for first pattern
+    for (int currentRow = (totalRows-1); currentRow > 0; currentRow--)
+    {
+        cout << "*";
+
+        //* for increasing part
+        for (int currentCol = 0; currentCol  < (totalRows-currentRow-2); currentCol++)
+        {
+            cout << currentCol + 1;
+        }
+
+        //* for decreasing part
+        for (int currentCol = (totalRows-currentRow-1); currentCol > 0; currentCol--)
+        {
+            cout << currentCol;
+        }
+
+        if (currentRow > 0)
+        {
+            cout << "*";
         }
 
         cout << endl;
@@ -195,35 +219,34 @@ void printButterflyPattern(int totalRows)
 
         //* for right star
         for (int currentCol = 0; currentCol < currentRow + 1; currentCol++)
-        { 
+        {
             cout << "*";
         }
         cout << endl;
     }
 
-//* for Second pattern
-   for (int currentRow = 0; currentRow < totalRows; currentRow++)
+    //* for Second pattern
+    for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
         //* for left star
-        for (int currentCol = (totalRows-currentRow); currentCol > 0; currentCol--)
+        for (int currentCol = (totalRows - currentRow); currentCol > 0; currentCol--)
         {
             cout << "*";
         }
 
         //* for spaces
-        for (int currentCol = 0; currentCol < 2*currentRow+1; currentCol++)
+        for (int currentCol = 0; currentCol < 2 * currentRow + 1; currentCol++)
         {
             cout << " ";
         }
 
         //* for right star
-        for (int currentCol = (totalRows-currentRow); currentCol > 0; currentCol--)
-        { 
+        for (int currentCol = (totalRows - currentRow); currentCol > 0; currentCol--)
+        {
             cout << "*";
         }
         cout << endl;
     }
-
 }
 
 int main()
@@ -249,12 +272,12 @@ int main()
     cout << endl
          << endl;
 
-    // cout << "Hallow Full Pyramid Pattern : " << endl;
+    cout << "Fancy Pattern 2 : " << endl;
 
-    // printHallowFullPyramid(numberOfRows);
+    printFancyPattern2(numberOfRows);
 
-    // cout << endl
-    //      << endl;
+    cout << endl
+         << endl;
 
     // cout << "Numeric Hallow Half Pyramid Pattern : " << endl;
 
