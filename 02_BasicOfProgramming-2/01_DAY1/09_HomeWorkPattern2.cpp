@@ -89,27 +89,28 @@ void printSolidHalfDiamond(int totalRows)
 }
 
 void printFancyPattern2(int totalRows)
+
 {
     //* for first pattern
     for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
-        cout << "*";
+        cout << "* ";
 
         //* for increasing part
         for (int currentCol = 0; currentCol < currentRow; currentCol++)
         {
-            cout << currentCol + 1;
+            cout << currentCol + 1<<" ";
         }
 
         //* for decreasing part
-        for (int currentCol = currentRow - 1; currentCol >= 1; currentCol--)
+        for (int currentCol = currentRow - 1; currentCol > 0; currentCol--)
         {
-            cout << currentCol;
+            cout << currentCol<<" ";
         }
 
         if (currentRow > 0)
         {
-            cout << "*";
+            cout << "* ";
         }
 
         cout << endl;
@@ -117,23 +118,23 @@ void printFancyPattern2(int totalRows)
      //* for first pattern
     for (int currentRow = (totalRows-1); currentRow > 0; currentRow--)
     {
-        cout << "*";
+        cout << "* ";
 
         //* for increasing part
-        for (int currentCol = 0; currentCol  < (totalRows-currentRow-2); currentCol++)
+        for (int currentCol = 0; currentCol  < (currentRow-1); currentCol++)
         {
-            cout << currentCol + 1;
+            cout << currentCol + 1<<" ";
         }
 
         //* for decreasing part
-        for (int currentCol = (totalRows-currentRow-1); currentCol > 0; currentCol--)
+        for (int currentCol = (currentRow-2); currentCol > 0; currentCol--)
         {
-            cout << currentCol;
+            cout << currentCol<<" ";
         }
 
-        if (currentRow > 0)
+        if (currentRow >1)
         {
-            cout << "*";
+            cout << "* ";
         }
 
         cout << endl;
