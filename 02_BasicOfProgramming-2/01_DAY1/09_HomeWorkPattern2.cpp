@@ -99,13 +99,13 @@ void printFancyPattern2(int totalRows)
         //* for increasing part
         for (int currentCol = 0; currentCol < currentRow; currentCol++)
         {
-            cout << currentCol + 1<<" ";
+            cout << currentCol + 1 << " ";
         }
 
         //* for decreasing part
         for (int currentCol = currentRow - 1; currentCol > 0; currentCol--)
         {
-            cout << currentCol<<" ";
+            cout << currentCol << " ";
         }
 
         if (currentRow > 0)
@@ -115,24 +115,24 @@ void printFancyPattern2(int totalRows)
 
         cout << endl;
     }
-     //* for first pattern
-    for (int currentRow = (totalRows-1); currentRow > 0; currentRow--)
+    //* for first pattern
+    for (int currentRow = (totalRows - 1); currentRow > 0; currentRow--)
     {
         cout << "* ";
 
         //* for increasing part
-        for (int currentCol = 0; currentCol  < (currentRow-1); currentCol++)
+        for (int currentCol = 0; currentCol < (currentRow - 1); currentCol++)
         {
-            cout << currentCol + 1<<" ";
+            cout << currentCol + 1 << " ";
         }
 
         //* for decreasing part
-        for (int currentCol = (currentRow-2); currentCol > 0; currentCol--)
+        for (int currentCol = (currentRow - 2); currentCol > 0; currentCol--)
         {
-            cout << currentCol<<" ";
+            cout << currentCol << " ";
         }
 
-        if (currentRow >1)
+        if (currentRow > 1)
         {
             cout << "* ";
         }
@@ -143,29 +143,45 @@ void printFancyPattern2(int totalRows)
 
 void printFancyPattern3(int totalRows)
 {
-    //* for Rows
+    int count = 1;
+    //* for upper part
     for (int currentRow = 0; currentRow < totalRows; currentRow++)
     {
         //* for space
-        for (int spaceCount = 0; spaceCount < (totalRows - currentRow - 1); spaceCount++)
+        for (int currentCol = 0; currentCol < (2 * currentRow + 1); currentCol++)
         {
-            cout << " ";
-        }
-
-        //* for Star
-        for (int starCount = 0; starCount < currentRow + 1; starCount++)
-        {
-            if (starCount == 0 || starCount == currentRow || currentRow == totalRows - 1)
+            if (currentCol % 2 == 0)
             {
-                cout << "* ";
+                cout << count++ << " ";
             }
             else
             {
-                cout << "  ";
+                cout << "* ";
             }
         }
 
         cout << endl;
+    }
+
+    //* lower part
+    int start = count - totalRows;
+    for (int currentRow = totalRows; currentRow > 0; currentRow--)
+    {
+        int tempStart = start;
+        for (int currentCol = 0; currentCol < (2 * currentRow - 1); currentCol++)
+        {
+            if (currentCol % 2 == 0)
+            {
+                cout << tempStart++<<" ";
+            }
+            else
+            {
+                cout << "* ";
+            }
+        }
+
+        start -= currentRow -1;
+        cout<<endl;
     }
 }
 
@@ -280,12 +296,12 @@ int main()
     cout << endl
          << endl;
 
-    // cout << "Numeric Hallow Half Pyramid Pattern : " << endl;
+    cout << "Fancy Pattern 3 : " << endl;
 
-    // printNumericHallowHalfPyramid(numberOfRows);
+    printFancyPattern3(numberOfRows);
 
-    // cout << endl
-    //      << endl;
+    cout << endl
+         << endl;
 
     cout << "Floyds Triangle Pattern : " << endl;
 
