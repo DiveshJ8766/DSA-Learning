@@ -1,1 +1,1 @@
-currentCol
+value*(currentRow-currentCol
