@@ -1,12 +1,15 @@
 #include <iostream>
 using namespace std;
 
-void printCounting(int num)
+int printCounting(int num)
 {
+    int sum = 0;
     for (int i = 1; i <= num; i++)
     {
-        cout << i << " ";
+        sum += i;
     }
+
+    return sum;
 }
 
 int main()
@@ -15,8 +18,8 @@ int main()
     cout << "Enter Number : ";
     cin >> num;
 
-    cout << "Counting From 1 to " << num << " : ";
-    printCounting(num);
+    int sum = printCounting(num);
+    cout << "Sum : " << sum << endl;
 
     return 0;
 }
