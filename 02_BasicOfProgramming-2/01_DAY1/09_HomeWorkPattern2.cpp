@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 void printNumericPalindromeEquilateralPyramid(int totalRows)
@@ -172,7 +173,7 @@ void printFancyPattern3(int totalRows)
         {
             if (currentCol % 2 == 0)
             {
-                cout << tempStart++<<" ";
+                cout << tempStart++ << " ";
             }
             else
             {
@@ -180,8 +181,8 @@ void printFancyPattern3(int totalRows)
             }
         }
 
-        start -= currentRow -1;
-        cout<<endl;
+        start -= currentRow - 1;
+        cout << endl;
     }
 }
 
@@ -202,20 +203,44 @@ void printFloydsTrianglePattern(int totalRows)
 
 void printPascalsTrianglePattern(int totalRows)
 {
-    //* for Rows
-    for (int currentRow = 0; currentRow < totalRows; currentRow++)
-    {
-        //* for columns
-        for (int currentCol = 0; currentCol < (totalRows - currentRow); currentCol++)
-        {
-            if (currentCol == 0 || currentCol == ((totalRows - currentRow) - 1) || currentRow == 0)
-                cout << currentCol + 1 << " ";
-            else
-                cout << "  ";
+    //*Initialize the vector
+    vector<vector<int>> Pascal(totalRows);
+
+    //* initialize the size and mark first and last columns as 1
+    for(int currentRow =0;currentRow<totalRows;currentRow++){
+        Pascal[currentRow].resize(currentRow+1); //* size of each row
+        Pascal[currentRow][0] = Pascal[currentRow][currentRow] = 1; //* first and last element as 1
+    }
+
+    //* now middle rows
+    //* as we can start with 2 as first two rows are always 1
+    for(int currentRow=2;currentRow < totalRows;currentRow++){
+        for(int currentCol=1;currentCol < currentRow;currentCol++){
+            Pascal[currentRow][currentCol] = Pascal[currentRow-1][currentCol-1] + Pascal[currentRow-1][currentCol];
         }
-        cout << endl;
+    }
+
+    //* print the vector
+    for(int currentRow =0;currentRow < totalRows;currentRow++){
+        for(int currentCol =0;currentCol < currentRow+1;currentCol++){
+            cout<<Pascal[currentRow][currentCol]<<" ";
+        }
+        cout<<endl;
     }
 }
+
+void printPascalsTrianglePattern1(int totalRows)
+{
+    for(int currentRow = 0;currentRow < totalRows;currentRow++){
+        int value = 1;
+        for(int currentCol =0;currentCol <= currentRow ;currentCol++){
+            cout<<value<<" ";
+            value = (value*(currentRow-currentCol))/(currentCol+1);
+        }
+        cout<<endl;
+    }
+}
+
 
 void printButterflyPattern(int totalRows)
 {
@@ -306,6 +331,20 @@ int main()
     cout << "Floyds Triangle Pattern : " << endl;
 
     printFloydsTrianglePattern(numberOfRows);
+
+    cout << endl
+         << endl;
+
+    cout << "Pascals Triangle Pattern : " << endl;
+
+    printPascalsTrianglePattern(numberOfRows);
+
+    cout << endl
+         << endl;
+
+cout << "Pascals Triangle Pattern : " << endl;
+
+    printPascalsTrianglePattern1(numberOfRows);
 
     cout << endl
          << endl;
