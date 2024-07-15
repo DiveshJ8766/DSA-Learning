@@ -35,6 +35,12 @@ void printArray(int arr[], int size)
     cout << endl;
 }
 
+void incrementArray(int arr[],int size){
+    arr[0]= 61;
+    arr[1]= 72;
+    printArray(arr,size);
+}
+
 int main()
 {
     int arr[5];
@@ -57,6 +63,11 @@ int main()
 
     int garbageArray[10];
     printArray(garbageArray,10);
+
+    //* pass by reference
+    int passReference[2] = {21,98};
+    incrementArray(passReference,2);
+    printArray(passReference,2);
 
     return 0;
 }
