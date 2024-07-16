@@ -64,12 +64,23 @@ int main()
     }
 
     //* printing array
-    for (int i = 0; i < s; i++){
+    for (int i = 0; i < s; i++)
+    {
         cout << demo[i] << " ";
         demo.pop_back();
     }
-cout<<endl;
-    cout<<"Demo vector is Empty : "<<demo.empty();
+    cout << endl;
+    cout << "Demo vector is Empty : " << demo.empty();
 
+    //* method 5
+    vector<int> student{12, 342, 212, 421};
+    cout << endl
+         << "printing Students Marks : " << endl;
+    for (int i = 0; i < student.size(); i++)
+    {
+        cout << student[i] << " ";
+    }
+    cout << endl;
+    
     return 0;
 }
