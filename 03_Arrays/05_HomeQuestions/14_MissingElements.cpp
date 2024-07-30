@@ -13,10 +13,11 @@ void printVector(vector<int> v)
     cout << endl;
 }
 
-int missingElement(vector<int> v){
-    for(int i =0;i < v.size();i++){
-        
-        
+int missingElement(vector<int> v)
+{
+    for (int i = 0; i < v.size(); i++)
+    {
+        int index = v[i];
     }
 }
 
@@ -40,10 +41,10 @@ int main()
     cout << "Before : " << endl;
     printVector(v);
 
-    vector<int> ans = missingElement(v);
+    int ans = missingElement(v);
 
-    cout << "Before : " << endl;
-    printVector(ans);
-
+    cout << "Ans : " << endl;
+    cout << ans << endl;
+    
     return 0;
 }
