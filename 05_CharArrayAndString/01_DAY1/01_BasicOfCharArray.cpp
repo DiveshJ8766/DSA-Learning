@@ -90,5 +90,11 @@ int main()
     //* this will not work as we have to enter by using enter keyword
     cout<<"Mistake Array After : "<<mistake<<endl;
 
+    //* Adding delimiter 
+    char fruits[100];
+    cout<<"Enter Fruits Getline : ";
+    cin.getline(mistake,100,',');
+    cout<<"Fruits Array : "<<mistake<<endl;
+
     return 0;
 }
