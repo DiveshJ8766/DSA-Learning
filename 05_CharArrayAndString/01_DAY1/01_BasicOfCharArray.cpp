@@ -67,5 +67,28 @@ int main()
     for (int i = 0; i < size; i++)
         cout << "Index : " << i << " : " << charArray[i] << " " << (int)charArray[i] << " " << endl;
 
+    cout<<endl<<endl;
+
+    //* Properly Terminate the string
+    char str[] = {'d', 'i', 'v', 'e', 's', 'h', ' ', 'j', 'a', 'd', 'h', 'a', 'v', '\0'};
+    cout << "String: " << str << endl;
+
+    //* Getline Function
+    char mistake[100];
+    cout<<"Enter Name : ";
+    cin>>mistake;
+
+    cout<<"Entered Text : "<<mistake<<endl;
+
+    cout<<"Enter Again Using Getline : ";
+    cin.getline(mistake,10);
+    cout<<"Mistake Array : "<<mistake<<endl;
+
+    //* we can't directly enter the \n newline character in getlinefunction
+    mistake[5] = '\n';
+
+    //* this will not work as we have to enter by using enter keyword
+    cout<<"Mistake Array After : "<<mistake<<endl;
+
     return 0;
 }
