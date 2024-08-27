@@ -17,7 +17,7 @@ string removeAdjacentCharacter(string str)
     return str;
 }
 
-//* using for loop
+//* using While loop
 string removeDuplicates(string s)
 {
     string ans = "";
