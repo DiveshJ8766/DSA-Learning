@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+//* Palindrome
 bool checkPalindrome(string s,int start,int end){
     int i = start;
     int j = end;
@@ -17,6 +18,7 @@ bool checkPalindrome(string s,int start,int end){
     return true;
 }
 
+//* Check Which One is Palindrome
 bool checkValidPalindrome(string str){
     int i =0 ;
     int j = str.length()-1;
