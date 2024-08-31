@@ -29,6 +29,12 @@ int main(){
     cout<<"Value of Arr : "<<*(arr + 4)<<endl;
     cout<<"Value of Arr : "<<arr[4]<<endl;
 
+    //* Magic Syntax
+    cout<<arr[0]<<endl;
+    cout<<*(arr+0)<<endl;
+    cout<<0[arr]<<endl;
+    cout<<*(0+arr)<<endl;
+
 
 
 
