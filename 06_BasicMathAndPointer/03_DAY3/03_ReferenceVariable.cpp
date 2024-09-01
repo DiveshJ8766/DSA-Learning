@@ -7,7 +7,7 @@ void counter(int &a){
 }
 
 //* Pointer  With Reference
-void counter2(int *&a){
+ void counter2(int *&a){
     a = a+1;
 }
 
