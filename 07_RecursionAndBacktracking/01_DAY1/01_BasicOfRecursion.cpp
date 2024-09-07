@@ -51,6 +51,23 @@ void printCounting(int n)
     cout << n << " ";
 }
 
+//* print ith index Element of Fibonacci series
+int printithElement(int index)
+{
+
+    //* base case
+    if (index == 0 || index == 1)
+    {
+        return index;
+    }
+
+    //* Recursion relation
+    int ithTerm = printithElement(index - 1) + printithElement(index - 2);
+
+    //* Return ans
+    return ithTerm;
+}
+
 int main()
 {
     long long int number;
@@ -72,6 +89,15 @@ int main()
 
     cout << "Print counting : " << endl;
     printCounting(number);
+    cout << endl;
+
+    cout << endl
+         << endl;
+
+    cout << "Print ith Index of Fibonacci Series : " << endl;
+    int element = printithElement(number);
+    cout << number << " th index Element : " << element << endl;
+
     cout << endl;
 
     return 0;
