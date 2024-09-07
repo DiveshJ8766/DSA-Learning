@@ -68,6 +68,62 @@ int printithElement(int index)
     return ithTerm;
 }
 
+//* Exponential Power (optimized)
+int exponentialPower(int a, int b)
+{
+    //* Base case
+    if (b == 0)
+    {
+        return 1;
+    }
+
+    if (b == 1)
+    {
+        return a;
+    }
+
+    //* Recursive Call
+    int ans = exponentialPower(a, (b / 2));
+
+    //* If power is Even
+    if (b % 2 == 0)
+    {
+        //* a^(b/2) * a^(b/2)
+        return ans * ans;
+    }
+    //* If Power is Odd
+    else
+    {
+        //* a * (a^(b/2) * a^(b/2))
+        return a * (ans * ans);
+    }
+}
+
+int exponentialPower1(int a, int b)
+{
+    //* Base case
+    if (b == 0)
+    {
+        return 1;
+    }
+
+    if (b == 1)
+    {
+        return a;
+    }
+
+    
+
+
+    //* Recursive Call
+    int ans = a * exponentialPower(a,b-1);
+
+     cout<<a<<" "<<b<<endl;
+     
+    return ans;
+}
+
+
 int main()
 {
     long long int number;
@@ -97,6 +153,21 @@ int main()
     cout << "Print ith Index of Fibonacci Series : " << endl;
     int element = printithElement(number);
     cout << number << " th index Element : " << element << endl;
+
+    cout << endl;
+
+    cout << endl
+         << endl;
+
+    int a;
+    cout << "Enter Value of A : ";
+    cin >> a;
+
+    int b;
+    cout << "Enter Value of B : ";
+    cin >> b;
+
+    cout << "Exponential Power : " << exponentialPower1(a, b) << endl;
 
     cout << endl;
 
