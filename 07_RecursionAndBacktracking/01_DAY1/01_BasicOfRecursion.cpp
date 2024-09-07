@@ -17,6 +17,40 @@ long long int factorial(int n)
     return ans;
 }
 
+//* this is Tail Recursion
+//* Print Reverse Counting
+void printReverse(int n)
+{
+    //*  Base Case
+    if (n == 0)
+    {
+        return;
+    }
+
+    //* Processing (optional)
+    cout << n << " ";
+
+    //* Recursive relation
+    printReverse(n - 1);
+}
+
+//* this is head recursion
+//* Print Counting
+void printCounting(int n)
+{
+    //* base Case
+    if (n == 0)
+    {
+        return;
+    }
+
+    //* Recursive Relation
+    printCounting(n - 1);
+
+    //* Processing
+    cout << n << " ";
+}
+
 int main()
 {
     long long int number;
@@ -25,6 +59,20 @@ int main()
 
     long long int fact = factorial(number);
     cout << "Factorial of " << number << " : " << fact << endl;
+
+    cout << endl
+         << endl;
+
+    cout << "Reverse Printing : " << endl;
+    printReverse(number);
+    cout << endl;
+
+    cout << endl
+         << endl;
+
+    cout << "Print counting : " << endl;
+    printCounting(number);
+    cout << endl;
 
     return 0;
 }
