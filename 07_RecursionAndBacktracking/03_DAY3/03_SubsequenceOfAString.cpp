@@ -12,6 +12,39 @@ void printVector(vector<string> arr)
     cout << endl;
 }
 
+//* using recursion and bitmasking
+void printSubsequence3(string str)
+{
+
+    vector<string> ans;
+
+    //* total number of subsequence possible
+    int n = 1 << str.length();
+
+    //* for every mask from 0 to n
+    for (int mask = 0; mask < n; mask++)
+    {
+        string output = "";
+        for (int i = 0; i < str.length(); i++)
+        {
+            if (mask & (1 << i))
+            {
+                output.push_back(str[i]);
+            }
+        }
+
+        ans.push_back(output);
+    }
+
+    cout << "Bit masking elements : " << endl;
+    for (auto val : ans)
+    {
+        cout << val << endl;
+    }
+
+    cout<<"\nSize of ans : "<<ans.size()<<endl;
+}
+
 //* using recursion and store ans in vector
 void printSubsequence2(string str, string output, int index, vector<string> &ans)
 {
@@ -93,6 +126,8 @@ int main()
     cout << endl;
 
     cout << "size of ans : " << ans.size() << endl;
+
+    printSubsequence3(str);
 
     return 0;
 }
