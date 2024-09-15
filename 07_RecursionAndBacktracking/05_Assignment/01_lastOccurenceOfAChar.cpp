@@ -18,8 +18,7 @@ void lastOccurenceLTRRecursive(string &str, char &ch, int index, int &ans)
     lastOccurenceLTRRecursive(str, ch, index + 1, ans);
 }
 
-//* return in Variable
-
+//* return in variable
 int lastOccurenceLTRRecursive1(string &str, char &ch, int index)
 {
     //* Base case
@@ -58,6 +57,7 @@ void lastOccurenceRTLRecursive(string &str, char &ch, int index, int &ans)
     lastOccurenceRTLRecursive(str, ch, index - 1, ans);
 }
 
+
 //* Return in varaible
 int lastOccurenceRTLRecursive1(string &str, char &ch, int index)
 {
@@ -91,6 +91,7 @@ int lastOccurenceLTR(string &str, char &ch)
     return ans;
 }
 
+
 //* iterative method from right to left
 int lastOccurenceRTL(string &str, char &ch)
 {
@@ -106,11 +107,12 @@ int lastOccurenceRTL(string &str, char &ch)
     return ans;
 }
 
+
 int main()
 {
 
-    string str = "abcddedgd";
-    char ch = 'd';
+    string str = "divesh";
+    char ch = 'h';
     int index1 = 0;
     int index2 = str.length()-1;
 
@@ -123,6 +125,7 @@ int main()
     lastOccurenceRTLRecursive(str, ch, index2, ans2);
     cout << "Last Occurence RTL Recursive : " << ans2 << endl;
 
+    cout << "Last Occurence LTR Recursive by storing : " << lastOccurenceLTRRecursive1(str, ch, index1) << endl;
     cout << "Last Occurence RTL Recursive by storing : " << lastOccurenceRTLRecursive1(str, ch, index2) << endl;
 
     cout << "Last Occurence LTR : " << lastOccurenceLTR(str, ch) << endl;
