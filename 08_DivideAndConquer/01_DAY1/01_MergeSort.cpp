@@ -30,17 +30,17 @@ void mergeTwoSortedArray(int *arr, int start, int end)
     //* here we have to start arr index from start
     //* but for left and right array we need to start from zero th index
     int index = start;
-    while (index  < length1)
+    int i = 0;
+    while (i  < length1)
     {
-        leftArray[index] = arr[index];
-        index++;
+        leftArray[i++] = arr[index++];
     }
 
     index = mid + 1;
-    while (index < length2)
+    i = 0;
+    while (i < length2)
     {
-        rightArray[index] = arr[index];
-        index++;
+        rightArray[i++] = arr[index++];
     }
 
     //* merge two arrays
