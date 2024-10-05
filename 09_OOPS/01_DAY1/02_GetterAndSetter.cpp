@@ -3,15 +3,15 @@ using namespace std;
 
 class Person
 {
-private:
+public:
     string name;
     int age;
     char gender;
 
 public:
-    void setName(string n)
+    void setName(string name)
     {
-        name = n;
+        this->name = name;
     }
 
     string getName()
