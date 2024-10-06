@@ -9,7 +9,7 @@ class Animal
 };
 
 class Person
-{
+{ 
     //* Access Modifiers
 public:
     string name;
