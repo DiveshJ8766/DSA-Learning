@@ -1,4 +1,5 @@
 #include <iostream>
+#pragma pack(1)
 using namespace std;
 
 class Animal
