@@ -1,5 +1,5 @@
 #include <iostream>
-#pragma pack(1)
+// #pragma pack(1)
 using namespace std;
 
 class Animal
@@ -24,9 +24,9 @@ public:
     short x;
     double y;
     char ch;
-};
+}__attribute__((packed));
 
-class SameType
+class __attribute__((packed)) SameType
 {
     int a;
     int b;
