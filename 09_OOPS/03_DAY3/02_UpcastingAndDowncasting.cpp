@@ -8,6 +8,7 @@ public:
     {
         cout << "Animal Class Constructed" << endl;
     }
+
     virtual void speak()
     {
         cout << "Animal Class Speaking" << endl;
