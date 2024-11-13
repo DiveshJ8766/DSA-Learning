@@ -10,7 +10,7 @@ public:
 
 int main()
 {
-    Node *head = new Node();
+    Node *head;
     Node *one = new Node();
     Node *two = new Node();
     Node *three = new Node();
@@ -23,10 +23,10 @@ int main()
     two->next = three;
     three->next = NULL;
 
-    head->next = one;
+    head = one;
 
     cout << "Elements of Linked List : " << endl;
-    Node *current = head->next;
+    Node *current = head;
     while (current != NULL)
     {
         cout << current->data << " ";
