@@ -19,6 +19,11 @@ public:
         this->data = data;
         this->next = NULL;
     }
+
+    ~Node()
+    {
+        cout << "Node with data " << data << " is being deleted." << endl;
+    }
 };
 
 //* Get length of Linked List
@@ -328,11 +333,11 @@ int main()
     Node *head = NULL;
     Node *tail = NULL;
 
-    // insertAtBeginning(head, tail, 23);
-    // insertAtEnd(head, tail, 24);
-    // insertAtEnd(head, tail, 25);
-    // insertAtEnd(head, tail, 26);
-    // insertAtEnd(head, tail, 27);
+    insertAtBeginning(head, tail, 23);
+    insertAtEnd(head, tail, 24);
+    insertAtEnd(head, tail, 25);
+    insertAtEnd(head, tail, 26);
+    insertAtEnd(head, tail, 27);
 
     traverseList(head);
 
