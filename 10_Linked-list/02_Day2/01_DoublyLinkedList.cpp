@@ -50,6 +50,44 @@ int getLengthOfLinkedList(Node *&head)
         return length;
 }
 
+void insertionAtHead(Node *&head, Node *&tail, int data)
+{
+        //* step 1: Create Empty Node
+        Node *temp = new Node(data);
+
+        //* step 2: Check head is NULL Or Not
+        if (head == NULL)
+        {
+                head = temp;
+                tail = temp;
+                return;
+        }
+
+        //* step 3: Head is Not NULL
+        temp->next = head;
+        head->previous = temp;
+        head = temp;
+}
+
+void insertionAtEnd(Node *&head, Node *&tail, int data)
+{
+        //* step 1 : Create a Empty Node
+        Node *temp = new Node(data);
+
+        //* step 2 : Check tail is Null or Not
+        if (tail == NULL)
+        {
+                head = temp;
+                tail = temp;
+                return;
+        }
+
+        //* step 3 : tail is not NULL
+        tail->next = temp;
+        temp->previous = tail;
+        tail = temp;
+}
+
 int main()
 {
 
@@ -75,6 +113,14 @@ int main()
 
         head = first;
         tail = fourth;
+
+        insertionAtHead(head, tail, 76);
+        insertionAtHead(head, tail, 87);
+        insertionAtEnd(head, tail, 90);
+        insertionAtEnd(head, tail, 123);
+        insertionAtHead(head, tail, 234);
+        insertionAtHead(head, tail, 345);
+        insertionAtEnd(head, tail, 390);
 
         printDoublyLinkedList(head);
         cout << "Length of Linked List : " << getLengthOfLinkedList(head) << endl;
