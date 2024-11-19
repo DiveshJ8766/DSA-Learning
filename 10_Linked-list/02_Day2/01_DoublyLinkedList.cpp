@@ -23,26 +23,28 @@ public:
         }
 };
 
-void printDoublyLinkedList(Node *head)
+void printDoublyLinkedList(Node *&head)
 {
+        Node *temp = head;
         cout << "Elements of Linked list : " << endl;
-        while (head != NULL)
+        while (temp != NULL)
         {
-                cout << head->data << " ";
-                head = head->next;
+                cout << temp->data << " ";
+                temp = temp->next;
         }
 
         cout << endl;
 }
 
-int getLengthOfLinkedList(Node *head)
+int getLengthOfLinkedList(Node *&head)
 {
         int length = 0;
+        Node *temp = head;
 
-        while (head != NULL)
+        while (temp != NULL)
         {
                 length++;
-                head = head->next;
+                temp = temp->next;
         }
 
         return length;
