@@ -53,39 +53,39 @@ int getLengthOfLinkedList(Node *&head)
 void insertionAtHead(Node *&head, Node *&tail, int data)
 {
         //* step 1: Create Empty Node
-        Node *temp = new Node(data);
+        Node *newNode = new Node(data);
 
         //* step 2: Check head is NULL Or Not
         if (head == NULL)
         {
-                head = temp;
-                tail = temp;
+                head = newNode;
+                tail = newNode;
                 return;
         }
 
         //* step 3: Head is Not NULL
-        temp->next = head;
-        head->previous = temp;
-        head = temp;
+        newNode->next = head;
+        head->previous = newNode;
+        head = newNode;
 }
 
 void insertionAtEnd(Node *&head, Node *&tail, int data)
 {
         //* step 1 : Create a Empty Node
-        Node *temp = new Node(data);
+        Node *newNode = new Node(data);
 
         //* step 2 : Check tail is Null or Not
         if (tail == NULL)
         {
-                head = temp;
-                tail = temp;
+                head = newNode;
+                tail = newNode;
                 return;
         }
 
         //* step 3 : tail is not NULL
-        tail->next = temp;
-        temp->previous = tail;
-        tail = temp;
+        tail->next = newNode;
+        newNode->previous = tail;
+        tail = newNode;
 }
 
 int main()
