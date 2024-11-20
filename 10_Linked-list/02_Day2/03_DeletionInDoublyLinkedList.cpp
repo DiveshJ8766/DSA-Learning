@@ -147,6 +147,12 @@ void deletionOfNode(Node *&head, Node *&tail, int position)
         return;
     }
 
+    if (head == NULL && tail == NULL)
+    {
+        cout << "List is empty. Deletion not possible." << endl;
+        return; 
+    }
+
     if (position == 1)
     {
         Node *temp = head;
