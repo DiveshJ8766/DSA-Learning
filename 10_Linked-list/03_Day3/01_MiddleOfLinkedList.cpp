@@ -55,6 +55,7 @@ int getLengthOfLinkedList(Node *&head)
     return length;
 }
 
+//* Middle element using Count Method
 Node *getMiddleNode(Node *&head, int middleIndex)
 {
     //* No element in Linked List
@@ -81,6 +82,34 @@ Node *getMiddleNode(Node *&head, int middleIndex)
     return middleNode;
 }
 
+//* Middle element using Tortoise Method
+Node *getMiddleNodeUsingTortoiseMethod(Node *&head)
+{
+    //* Empty List
+    if (head == NULL)
+    {
+        cout << "Linked List is Empty No Middle Element." << endl;
+        return head;
+    }
+
+    //* Traverse to the Middle Element
+    Node *slow = head;
+
+    //* if second element is considered as Middle Element
+    // Node *fast = head;
+
+    //* if first element is considered as Middle Element
+    Node *fast = head->next;
+
+    while (fast != NULL && fast->next != NULL)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+
+    return slow;
+}
+
 int main()
 {
     Node *head = NULL;
@@ -91,14 +120,16 @@ int main()
     Node *third = new Node(40);
     Node *fourth = new Node(50);
     Node *fifth = new Node(60);
+    Node *sixth = new Node(70);
 
     first->next = second;
     second->next = third;
     third->next = fourth;
     fourth->next = fifth;
+    fifth->next = sixth;
 
     head = first;
-    tail = fourth;
+    tail = sixth;
 
     printLinkedList(head);
     int length = getLengthOfLinkedList(head);
@@ -116,6 +147,11 @@ int main()
     Node *middleNode = getMiddleNode(head, middleIndex);
     if (middleNode != NULL)
         cout << "Middle Node : " << middleNode->data << endl;
+
+    //* Middle Element Using tortoise Method;
+    Node *midNode = getMiddleNodeUsingTortoiseMethod(head);
+    if (midNode != NULL)
+        cout << "Middle Node : " << midNode->data << endl;
 
     //* Deallocating the dynamic Memory
     Node *temp = head;
