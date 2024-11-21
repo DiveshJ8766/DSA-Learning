@@ -55,7 +55,7 @@ int getLengthOfLinkedList(Node *&head)
     return length;
 }
 
-Node *getMiddleNode(Node *&head, int middle)
+Node *getMiddleNode(Node *&head, int middleIndex)
 {
     //* No element in Linked List
     if (head == NULL)
@@ -73,7 +73,7 @@ Node *getMiddleNode(Node *&head, int middle)
     Node *middleNode = head;
 
     //* Traverse till the node and return
-    for (int i = 0; i < middle; i++)
+    for (int i = 0; i < (middleIndex - 1); i++)
     {
         middleNode = middleNode->next;
     }
@@ -90,10 +90,12 @@ int main()
     Node *second = new Node(30);
     Node *third = new Node(40);
     Node *fourth = new Node(50);
+    Node *fifth = new Node(60);
 
     first->next = second;
     second->next = third;
     third->next = fourth;
+    fourth->next = fifth;
 
     head = first;
     tail = fourth;
@@ -102,14 +104,27 @@ int main()
     int length = getLengthOfLinkedList(head);
     cout << "Length Of Linked List : " << length << endl;
 
-    int middle;
-    if (length % 2 == 0)
-        middle = (length / 2);
-    else
-        middle = (length / 2) + 1;
+    //* Middle Index if even or odd Number of Elements
 
-    Node *middleNode = getMiddleNode(head, middle);
-    cout << "Middle Node : " << middleNode->data << endl;
+    //? even case :  considering the starting element as middle Element
+    int middleIndex = (length % 2 == 0) ? (length / 2) : ((length / 2) + 1);
+
+    //? even case :  considering the next element as middle Element
+    // int middleIndex = (length / 2) + 1;
+
+    //* Middle Element
+    Node *middleNode = getMiddleNode(head, middleIndex);
+    if (middleNode != NULL)
+        cout << "Middle Node : " << middleNode->data << endl;
+
+    //* Deallocating the dynamic Memory
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        Node *toDelete = temp;
+        temp = temp->next;
+        delete toDelete;
+    }
 
     return 0;
 }
