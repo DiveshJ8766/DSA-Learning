@@ -60,6 +60,7 @@ Node *cloneLinkedListHead(Node *&head)
     return newHead;
 }
 
+//* Reverse Linked List
 Node *reverseLinkedList(Node *&head)
 {
     Node *previous = NULL;
@@ -77,6 +78,7 @@ Node *reverseLinkedList(Node *&head)
     return previous;
 }
 
+//* Check LinkedList is Palindrome or Not
 bool checkLinkedList(Node *&originalLinkedListHead, Node *&reversedLinkedListHead)
 {
     Node *head1 = originalLinkedListHead;
