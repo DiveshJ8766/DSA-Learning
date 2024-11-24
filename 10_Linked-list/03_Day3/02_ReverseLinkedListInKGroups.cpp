@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Node
@@ -105,20 +106,50 @@ Node *reverseLinkedListInKGroup(Node *&head, int k)
     return reverseLinkedListHead;
 }
 
+void deleteLinkedList(Node *&head)
+{
+    while (head != NULL)
+    {
+        Node *temp = head;
+        head = head->next;
+        delete temp;
+    }
+}
+
+Node *createLinkedList(vector<int> &values)
+{
+    if (values.empty())
+        return NULL;
+
+    Node *head = new Node(values[0]);
+    Node *current = head;
+
+    for (int i = 1; i < values.size(); i++)
+    {
+        current->next = new Node(values[i]);
+        current = current->next;
+    }
+
+    return head;
+}
+
 int main()
 {
 
-    Node *head = new Node(3);
-    head->next = new Node(5);
-    head->next->next = new Node(4);
-    head->next->next->next = new Node(7);
-    head->next->next->next->next = new Node(7);
-    head->next->next->next->next->next = new Node(9);
-    head->next->next->next->next->next->next = new Node(8);
-    head->next->next->next->next->next->next->next = new Node(3);
-    head->next->next->next->next->next->next->next->next = new Node(1);
-    head->next->next->next->next->next->next->next->next->next = new Node(8);
-    head->next->next->next->next->next->next->next->next->next->next = new Node(6);
+    // Node *head = new Node(3);
+    // head->next = new Node(5);
+    // head->next->next = new Node(4);
+    // head->next->next->next = new Node(7);
+    // head->next->next->next->next = new Node(7);
+    // head->next->next->next->next->next = new Node(9);
+    // head->next->next->next->next->next->next = new Node(8);
+    // head->next->next->next->next->next->next->next = new Node(3);
+    // head->next->next->next->next->next->next->next->next = new Node(1);
+    // head->next->next->next->next->next->next->next->next->next = new Node(8);
+    // head->next->next->next->next->next->next->next->next->next->next = new Node(6);
+
+    vector<int> values = {3, 5, 4, 7, 7, 9, 8, 3, 1, 8, 6};
+    Node *head = createLinkedList(values);
 
     int k = 3;
 
@@ -127,6 +158,8 @@ int main()
     Node *reverseLinkedListInKGroupHead = reverseLinkedListInKGroup(head, k);
 
     printLinkedList(reverseLinkedListInKGroupHead);
+
+    deleteLinkedList(reverseLinkedListInKGroupHead);
 
     return 0;
 }
