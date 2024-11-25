@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 using namespace std;
 
 class Node
@@ -106,9 +107,11 @@ bool checkCircularLinkedListUsingTraverseral(Node *&head)
 bool checkCircularLinkedListUsingSlowFastPointer(Node *&head)
 {
 
+    //* head is null return it
     if (head == NULL)
         return false;
 
+    //* only one element and it is pointing to head return true
     if (head->next == head)
     {
         return true;
@@ -119,9 +122,13 @@ bool checkCircularLinkedListUsingSlowFastPointer(Node *&head)
 
     while (fast != NULL && fast->next != NULL)
     {
+        //* move slow 1 step
         slow = slow->next;
+
+        //* move fast 2 step
         fast = fast->next->next;
 
+        //* check the condition after wards as slow and fast is already pointing to head
         if (slow == fast)
             return true;
     }
@@ -130,7 +137,34 @@ bool checkCircularLinkedListUsingSlowFastPointer(Node *&head)
 }
 
 //* Approach 3 : Map Approach
-bool checkCircularLinkedListUsingMap(Node *&head) { return false; }
+bool checkCircularLinkedListUsingMap(Node *&head)
+{
+    //* head is null return it
+    if (head == NULL)
+        return false;
+
+    //* Create Map to mark the visited Node
+    map<Node *, bool> visited;
+
+    Node *tempNode = head;
+
+    while (tempNode != NULL)
+    {
+        //* check if Node is visited true that means linked list is circular
+        if (visited[tempNode])
+            return true;
+        else
+        {
+            //* and it not visited then mark it as visited
+            visited[tempNode] = true;
+        }
+
+        tempNode = tempNode->next;
+    }
+
+    //* at last return
+    return false;
+}
 
 int main()
 {
@@ -139,18 +173,19 @@ int main()
     Node *tail = NULL;
 
     head = createALinkedList(values, tail);
+    tail->next = head;
 
     cout << "Head of Linked List : " << head->data << endl;
     cout << "Tail of Linked List : " << tail->data << endl;
 
-    bool checkCircularLinkedList = checkCircularLinkedListUsingTraverseral(head);
+    bool checkCircularLinkedList = checkCircularLinkedListUsingMap(head);
 
     if (checkCircularLinkedList)
         cout << "Linked List is Circular..." << endl;
     else
         cout << "Linked List is Not Circular..." << endl;
 
-    deleteLinkedList(head);
+    // deleteLinkedList(head);
 
     return 0;
 }
