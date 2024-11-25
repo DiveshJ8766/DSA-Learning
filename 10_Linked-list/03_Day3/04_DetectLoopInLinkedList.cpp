@@ -86,8 +86,12 @@ bool detectdetectCircularLinkedListUsingMap(Node *&head)
 
     while (tempNode != NULL)
     {
-        //* check if Node is visited true that means linked list is circular
-        if (visited.count(tempNode))
+        //* check if Node is visited true that means linked list is circular using count method
+        // if (visited.count(tempNode))
+        //     return true;
+
+        //* check if Node is Visited true that means linked list is circular using find method
+        if (visited.find(tempNode) != visited.end())
             return true;
 
         //* and it not visited then mark it as visited
