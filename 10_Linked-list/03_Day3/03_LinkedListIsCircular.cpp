@@ -41,11 +41,32 @@ Node *createLinkedList(vector<int> &values, Node *&tail)
     return head;
 }
 
+//* Slow and Fast Pointer Traversal
+bool checkCircularLinkedListUsingSlowAndFasterPointer(Node *&head)
+{
+    if (head == NULL || head->next == NULL)
+        return true;
+
+    Node *slow = head;
+    Node *fast = head;
+
+    while (fast != NULL && fast->next != NULL)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if (slow == fast)
+            return true;
+    }
+
+    return false;
+}
+
 //* Circular Linked List using Map
 bool checkCircularLinkedListUsingMap(Node *&head)
 {
     if (head == NULL || head->next == NULL)
-        return true;
+        return false;
 
     //* Create a Map
     map<Node *, bool> visited;
@@ -110,10 +131,10 @@ int main()
     vector<int> values = {2, 4, 6, 7, 5};
     Node *tail = NULL;
     Node *head = createLinkedList(values, tail);
-    tail->next = head;
+    // tail->next = head;
 
     // printLinkedList(head);
-    bool isCircularLinkedList = checkCircularLinkedListUsingMap(head);
+    bool isCircularLinkedList = checkCircularLinkedListUsingSlowAndFasterPointer(head);
 
     if (isCircularLinkedList)
         cout << "Linked List is Circular" << endl;
