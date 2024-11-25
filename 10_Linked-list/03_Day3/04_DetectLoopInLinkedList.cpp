@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 using namespace std;
 
 class Node
@@ -72,8 +73,31 @@ void deleteLinkedList(Node *&head)
 }
 
 //* Approach 1 : Detect Cycle using Map Approach
-bool detecdetectCircularLinkedListUsingMap(Node *&head) {
-    
+bool detectdetectCircularLinkedListUsingMap(Node *&head)
+{
+    //* head is null return it
+    if (head == NULL)
+        return false;
+
+    //* Create Map to mark the visited Node
+    map<Node *, bool> visited;
+
+    Node *tempNode = head;
+
+    while (tempNode != NULL)
+    {
+        //* check if Node is visited true that means linked list is circular
+        if (visited.count(tempNode))
+            return true;
+
+        //* and it not visited then mark it as visited
+        visited[tempNode] = true;
+
+        tempNode = tempNode->next;
+    }
+
+    //* at last return
+    return false;
 }
 
 //* Approach 2 : Slow and Fast Pointer
@@ -120,7 +144,7 @@ int main()
 
     cout << "Tail : " << tail->data << endl;
 
-    bool checkLinkedListHasLoop = detectCircularLinkedListUsingSlowFastPointer(head);
+    bool checkLinkedListHasLoop = detectdetectCircularLinkedListUsingMap(head);
 
     if (checkLinkedListHasLoop)
         cout << "Linked List is Circular..." << endl;
