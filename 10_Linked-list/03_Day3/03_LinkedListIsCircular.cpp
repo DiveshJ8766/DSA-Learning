@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 using namespace std;
 
 class Node
@@ -38,6 +39,36 @@ Node *createLinkedList(vector<int> &values, Node *&tail)
     tail = current;
 
     return head;
+}
+
+//* Circular Linked List using Map
+bool checkCircularLinkedListUsingMap(Node *&head)
+{
+    if (head == NULL || head->next == NULL)
+        return true;
+
+    //* Create a Map
+    map<Node *, bool> visited;
+
+    //* Traverse the Linked List
+    Node *currentNode = head;
+
+    while (currentNode != NULL)
+    {
+        //* If Node Already Exist
+        if (visited[currentNode])
+        {
+            return true;
+        }
+
+        //* If  Node is Not already Visited then mark true
+        visited[currentNode] = true;
+
+        currentNode = currentNode->next;
+    }
+
+    //* If whole list is traversed then return false
+    return false;
 }
 
 //* print linked list
@@ -82,7 +113,7 @@ int main()
     tail->next = head;
 
     // printLinkedList(head);
-    bool isCircularLinkedList = checkLinkedList(head);
+    bool isCircularLinkedList = checkCircularLinkedListUsingMap(head);
 
     if (isCircularLinkedList)
         cout << "Linked List is Circular" << endl;
