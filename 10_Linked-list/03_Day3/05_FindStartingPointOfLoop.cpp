@@ -120,6 +120,54 @@ Node *startingLoopPointNode(Node *&head)
     return slow;
 }
 
+Node *intersectionOfSlowAndFastNode(Node *&head)
+{
+    //* If list is Empty
+    if (head == NULL)
+    {
+        return head;
+    }
+
+    //* start with head
+    Node *slow = head;
+    Node *fast = head;
+
+    while (fast != NULL && fast->next != NULL)
+    {
+        //* slow moves 1 step and fast moves 2 steps
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if (slow == fast)
+        {
+            return fast;
+        }
+    }
+
+    return NULL;
+}
+
+Node *pointOfLoopStart(Node *&head)
+{
+    if (head == NULL)
+        return NULL;
+
+    Node *intersectionNode = intersectionOfSlowAndFastNode(head);
+
+    if (intersectionNode == NULL)
+        return NULL;
+
+    Node *slow = head;
+    Node *fast = intersectionNode;
+
+    while (slow != fast)
+    {
+        slow = slow->next;
+        fast = fast->next;
+    }
+
+    return slow;
+}
 int main()
 {
     vector<int> values{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
@@ -130,7 +178,7 @@ int main()
     tail->next = head->next->next->next;
     // printLinkedList(head);
 
-    Node *startingPointNode = startingLoopPointNode(head);
+    Node *startingPointNode = pointOfLoopStart(head);
     cout << "Starting Point Node : " << ((startingPointNode != NULL) ? startingPointNode->data : 0) << endl;
 
     // deleteLinkedList(head);
