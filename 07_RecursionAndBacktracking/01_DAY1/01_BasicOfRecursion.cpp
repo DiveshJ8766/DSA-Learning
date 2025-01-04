@@ -112,17 +112,13 @@ int exponentialPower1(int a, int b)
         return a;
     }
 
-    
-
-
     //* Recursive Call
-    int ans = a * exponentialPower(a,b-1);
+    int ans = a * exponentialPower(a, b - 1);
 
-     cout<<a<<" "<<b<<endl;
-     
+    cout << a << " " << b << endl;
+
     return ans;
 }
-
 
 int main()
 {

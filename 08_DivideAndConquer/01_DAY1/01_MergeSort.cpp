@@ -9,6 +9,7 @@ void printArray(int *arr, int size)
         cout << arr[i] << " ";
     }
     cout<<endl;
+    
 }
 
 void mergeTwoSortedArray(int *arr, int start, int end)
