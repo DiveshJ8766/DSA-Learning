@@ -11,7 +11,10 @@ int factorial(int n)
         return 1;
     }
 
+    //* Recursion Relation
     int ans = n * factorial(n - 1);
+
+    //* Processing
     cout << "\n\nEnding with ans : " << ans << endl;
 
     return ans;
