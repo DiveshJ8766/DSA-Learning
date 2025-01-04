@@ -1,4 +1,5 @@
 #include <iostream>
+#include <map>
 using namespace std;
 
 class Node
@@ -34,7 +35,7 @@ void printLinkedList(Node *&head)
     cout << endl;
 }
 
-//* Remove Duplicates
+//* Approach 1 : Remove Duplicates using current and current->next
 Node *removeDuplicates(Node *&head)
 {
     if (head == NULL || head->next == NULL)
@@ -59,6 +60,35 @@ Node *removeDuplicates(Node *&head)
         else
         {
             currentNode = nextNode;
+        }
+    }
+
+    return head;
+}
+
+//* Approach 2 : Remove Duplicates using map
+Node *removeDuplicatesUsingMap(Node *&head)
+{
+    if (head == NULL || head->next == NULL)
+        return head;
+
+    map<int, bool> visited;
+
+    Node *temp = head;
+
+    while (temp != NULL)
+    {
+        if (!visited[temp->data])
+        {
+            visited[temp->data] = true;
+            temp = temp->next;
+        }
+        else
+        {
+            Node *tempNode = temp;
+            temp = temp->next;
+            tempNode->next = NULL;
+            delete (tempNode);
         }
     }
 
@@ -92,10 +122,14 @@ int main()
     head = first;
 
     printLinkedList(head);
-    cout << "Removing duplicates..." << endl;
-    head = removeDuplicates(head);
-    cout << "Linked List after removing duplicates:" << endl;
-    printLinkedList(head);
+    // cout << "Removing duplicates..." << endl;
+    // head = removeDuplicates(head);
+    // cout << "Linked List after removing duplicates:" << endl;
+    // printLinkedList(head);
+
+    cout << "Remove Duplicates using Map : " << endl;
+    Node *newLinkedListHead = removeDuplicatesUsingMap(head);
+    printLinkedList(newLinkedListHead);
 
     return 0;
 }
