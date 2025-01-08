@@ -18,15 +18,40 @@ void sayDigits(int number, vector<string> &ans)
     cout << ans[lastDigit] << " ";
 }
 
+//* Reverse Say Digits (Tail Recursion)
+void sayDigitsReverse(int n, vector<string> &ans)
+{
+    //* base case
+    if (n == 0)
+    {
+        return;
+    }
+
+    //* Processing
+    int lastdigit = n % 10;
+    cout << ans[lastdigit] << " ";
+
+    //* Recursion Relation
+    return sayDigitsReverse(n / 10, ans);
+}
+
 int main()
 {
 
-    int number = 6000;
+    int number;
+    cout << "Enter Number : ";
+    cin >> number;
+
     vector<string> ans = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
     cout << "\nDigits of " << number << " are : " << endl;
 
     sayDigits(number, ans);
+
+    cout << endl
+         << endl;
+
+    sayDigitsReverse(number, ans);
 
     cout << endl
          << endl;
