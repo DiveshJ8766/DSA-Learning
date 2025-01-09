@@ -42,7 +42,7 @@ void printSubsequence3(string str)
         cout << val << endl;
     }
 
-    cout<<"\nSize of ans : "<<ans.size()<<endl;
+    cout << "\nSize of ans : " << ans.size() << endl;
 }
 
 //* using recursion and store ans in vector

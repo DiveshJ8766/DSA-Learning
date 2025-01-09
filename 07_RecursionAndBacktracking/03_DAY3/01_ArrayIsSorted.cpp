@@ -2,28 +2,33 @@
 #include <vector>
 using namespace std;
 
-void printVector(vector<int> arr){
-    cout<<"Elements of Array : "<<endl;
-    for(int i =0;i < arr.size();i++){
-        cout<<arr[i]<<" ";
+void printVector(vector<int> arr)
+{
+    cout << "Elements of Array : " << endl;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        cout << arr[i] << " ";
     }
-    cout<<endl;
+    cout << endl;
 }
 
 //* with vector as pointer
-bool isSortedVector(vector<int> &arr){
-    if(arr.size()==1){
+bool isSortedVector(vector<int> &arr)
+{
+    if (arr.size() == 1)
+    {
         return true;
     }
 
-    if(arr[0] > arr[1]){
+    if (arr[0] > arr[1])
+    {
         return false;
     }
 
     vector<int> *ptr = &arr;
-    vector<int> newVec(ptr->begin()+1,ptr->end());
+    vector<int> newVec(ptr->begin() + 1, ptr->end());
 
-   printVector(newVec);
+    printVector(newVec);
 
     return isSortedVector(newVec);
 }
@@ -86,14 +91,12 @@ bool isSortedArray(int arr[], int size, int index)
     return isSortedArray(arr, size, index + 1);
 }
 
-
-
-
-void passVector(vector<int>& arr){
-    for(int i = 0;i < arr.size();i++){
+void passVector(vector<int> &arr)
+{
+    for (int i = 0; i < arr.size(); i++)
+    {
         arr[i] = 5;
     }
-    
     printVector(arr);
 }
 
@@ -128,19 +131,18 @@ int main()
     // else
     //     cout << "Array is Not Sorted !" << endl;
 
-        ch = isSortedVector(arr2);
+    ch = isSortedVector(arr2);
     if (ch)
         cout << "Vector is Sorted !" << endl;
     else
         cout << "Vector is Not Sorted !" << endl;
 
+    //* vector is pass by value by default:
 
-        //* vector is pass by value by default:
+    vector<int> arr = {1, 2, 3, 4, 5, 6, 7};
 
-    vector<int> arr = {1,2,3,4,5,6,7};
-    
     passVector(arr);
-    
+
     printVector(arr);
 
     return 0;
